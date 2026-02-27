@@ -51,6 +51,7 @@ One config → 16 agent files, always in sync.
 
 ## Features
 
+- **AI-Powered Rules** — `rulegen ai` analyzes your codebase and generates optimal rules automatically
 - **Zero-Config Setup** — `npx rulegen` one command does everything
 - **Smart Detection** — Auto-scans your project for language, framework, dependencies
 - **16 Agents** — Every major AI coding tool supported
@@ -81,6 +82,42 @@ npx rulegen import --from claude       # Import from specific agent
 npx rulegen import --from cursor,copilot  # Multiple agents
 ```
 
+## AI-Powered Rule Generation
+
+Why write rules manually when AI can analyze your codebase?
+
+### Setup
+
+```bash
+# Option 1: Environment variable
+export ANTHROPIC_API_KEY=sk-ant-xxx
+npx rulegen ai
+
+# Option 2: Config command
+npx rulegen config set provider claude
+npx rulegen config set api-key sk-ant-xxx
+npx rulegen ai
+
+# Option 3: Use OpenAI or Gemini
+OPENAI_API_KEY=sk-xxx npx rulegen ai --provider openai
+GEMINI_API_KEY=xxx npx rulegen ai --provider gemini
+```
+
+### What it does
+
+1. Scans your codebase (language, framework, dependencies)
+2. Analyzes code patterns (style, naming, architecture)
+3. AI generates optimal rules tailored to YOUR project
+4. Creates config files for all 16 AI coding agents
+
+### One command, zero config
+
+```bash
+ANTHROPIC_API_KEY=xxx npx rulegen ai
+```
+
+That's it. AI analyzes your project and generates everything.
+
 ## CLI Commands
 
 | Command | Description |
@@ -89,6 +126,8 @@ npx rulegen import --from cursor,copilot  # Multiple agents
 | `rulegen init` | Interactive project setup and config generation |
 | `rulegen generate` | Generate agent config files from config |
 | `rulegen import` | Import existing agent files into rulegen.config.json |
+| `rulegen ai` | AI-powered rule generation from codebase analysis |
+| `rulegen config` | Manage global config (API keys, provider) |
 | `rulegen sync` | Sync files (use `--watch` for auto-sync) |
 | `rulegen doctor` | Validate config and check file status |
 
@@ -100,6 +139,9 @@ rulegen generate --dry-run               # Preview without writing
 rulegen generate --force                 # Overwrite without asking
 rulegen generate --diff                  # Show changes
 rulegen generate --output ./out/         # Custom output directory
+rulegen ai --provider openai             # Use specific AI provider
+rulegen ai --dry-run                     # Generate config only
+rulegen ai --explain                     # Show reasoning for each rule
 rulegen sync --watch                     # Auto-regenerate on config change
 ```
 
@@ -194,9 +236,20 @@ rulegen sync --watch                     # Auto-regenerate on config change
 ## Why rulegen?
 
 - **Zero-config**: `npx rulegen` — one command does everything
+- **AI-powered**: `rulegen ai` analyzes your code and generates rules automatically
 - **Import existing**: Already have agent files? Import them, don't start over
 - **16 agents**: The most comprehensive agent support available
-- **Coming soon**: AI-powered rule generation
+
+## rulegen vs rulesync
+
+| Feature | rulegen | rulesync |
+|---------|---------|----------|
+| AI-powered rule generation | Yes | No |
+| Zero-config setup | Yes (`npx rulegen`) | No (manual .md files) |
+| Agents supported | 16 | 21 |
+| Import existing configs | Yes | Yes |
+| One-command setup | Yes | No |
+| API key required | Only for AI mode | N/A |
 
 ## Contributing
 
