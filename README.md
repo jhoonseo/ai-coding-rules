@@ -1,14 +1,14 @@
 <div align="center">
 
-# ai-coding-rules
+# rulegen
 
 **One config to rule them all.**
 
 Generate AI coding rules for Claude Code, Cursor, Copilot, Windsurf, Aider, and Codex — from a single config file.
 
-[![npm version](https://img.shields.io/npm/v/ai-coding-rules.svg)](https://www.npmjs.com/package/ai-coding-rules)
-[![npm downloads](https://img.shields.io/npm/dm/ai-coding-rules.svg)](https://www.npmjs.com/package/ai-coding-rules)
-[![license](https://img.shields.io/npm/l/ai-coding-rules.svg)](https://github.com/jhoonseo/ai-coding-rules/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/rulegen.svg)](https://www.npmjs.com/package/rulegen)
+[![npm downloads](https://img.shields.io/npm/dm/rulegen.svg)](https://www.npmjs.com/package/rulegen)
+[![license](https://img.shields.io/npm/l/rulegen.svg)](https://github.com/jhoonseo/ai-coding-rules/blob/main/LICENSE)
 
 <!-- ![demo](./assets/demo.gif) -->
 
@@ -25,8 +25,8 @@ You waste time maintaining `CLAUDE.md`, `.cursorrules`, and `copilot-instruction
 ## The Solution
 
 ```bash
-npx ai-coding-rules init      # Smart-detect your project
-npx ai-coding-rules generate  # Generate all agent configs
+npx rulegen init      # Smart-detect your project
+npx rulegen generate  # Generate all agent configs
 ```
 
 That's it. One config → six agent files, always in sync.
@@ -57,31 +57,31 @@ That's it. One config → six agent files, always in sync.
 ### Install globally (optional)
 
 ```bash
-npm install -g ai-coding-rules
+npm install -g rulegen
 ```
 
 ### Or use directly with npx
 
 ```bash
-npx ai-coding-rules init
+npx rulegen init
 ```
 
 This will:
 1. Scan your project directory
 2. Detect language, framework, and tooling
 3. Ask which AI agents you use
-4. Generate `ai-coding-rules.config.json`
+4. Generate `rulegen.config.json`
 
 Then generate your files:
 
 ```bash
-npx ai-coding-rules generate
+npx rulegen generate
 ```
 
 ### Verify setup
 
 ```bash
-npx ai-coding-rules doctor
+npx rulegen doctor
 ```
 
 ## Configuration
@@ -163,19 +163,19 @@ npx ai-coding-rules doctor
 
 | Command | Description |
 |---------|-------------|
-| `ai-coding-rules init` | Interactive project setup and config generation |
-| `ai-coding-rules generate` | Generate agent config files from config |
-| `ai-coding-rules sync` | Sync files (use `--watch` for auto-sync) |
-| `ai-coding-rules doctor` | Validate config and check file status |
+| `rulegen init` | Interactive project setup and config generation |
+| `rulegen generate` | Generate agent config files from config |
+| `rulegen sync` | Sync files (use `--watch` for auto-sync) |
+| `rulegen doctor` | Validate config and check file status |
 
 ### Common options
 
 ```bash
-ai-coding-rules generate --target claude,cursor  # Specific agents only
-ai-coding-rules generate --dry-run               # Preview without writing
-ai-coding-rules generate --force                  # Overwrite without asking
-ai-coding-rules generate --diff                   # Show changes
-ai-coding-rules sync --watch                      # Auto-regenerate on config change
+rulegen generate --target claude,cursor  # Specific agents only
+rulegen generate --dry-run               # Preview without writing
+rulegen generate --force                  # Overwrite without asking
+rulegen generate --diff                   # Show changes
+rulegen sync --watch                      # Auto-regenerate on config change
 ```
 
 ## How It Works

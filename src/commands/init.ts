@@ -160,6 +160,6 @@ export async function initCommand(options: InitOptions): Promise<void> {
   log.blank()
   log.info('Next steps:')
   log.dim('  1. Review and customize your config')
-  log.dim("  2. Run 'ai-coding-rules generate' to create agent files")
+  log.dim("  2. Run 'rulegen generate' to create agent files")
   log.blank()
 }

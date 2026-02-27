@@ -1,0 +1,35 @@
+{
+  "version": "1",
+  "project": {
+    "name": "my-project",
+    "type": "library",
+    "language": "typescript",
+    "runtime": "node",
+    "packageManager": "npm"
+  },
+  "rules": {
+    "style": {
+      "indentation": "spaces",
+      "indentSize": 2,
+      "quotes": "single",
+      "semicolons": false
+    },
+    "naming": {
+      "files": "kebab-case",
+      "functions": "camelCase",
+      "types": "PascalCase",
+      "constants": "UPPER_SNAKE_CASE"
+    }
+  },
+  "structure": {},
+  "instructions": {
+    "do": [],
+    "dont": [],
+    "guidelines": []
+  },
+  "targets": [
+    "claude",
+    "cursor",
+    "copilot"
+  ]
+}

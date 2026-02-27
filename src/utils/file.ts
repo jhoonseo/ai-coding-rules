@@ -5,7 +5,7 @@ import { configSchema } from '../types/config.js'
 import { ConfigNotFoundError, ConfigValidationError } from './errors.js'
 
 /** Config file name constant */
-export const CONFIG_FILENAME = 'ai-coding-rules.config.json'
+export const CONFIG_FILENAME = 'rulegen.config.json'
 
 /** Load and validate config from project root */
 export async function loadConfig(projectRoot: string): Promise<AiCodingRulesConfig> {

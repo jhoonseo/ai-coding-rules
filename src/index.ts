@@ -8,7 +8,7 @@ import { setQuiet, setVerbose } from './utils/logger.js'
 const program = new Command()
 
 program
-  .name('ai-coding-rules')
+  .name('rulegen')
   .description('One config to rule them all — generate AI coding rules for every agent.')
   .version('0.1.0')
   .option('-v, --verbose', 'Enable verbose output')
@@ -24,7 +24,7 @@ program
 
 program
   .command('init')
-  .description('Initialize ai-coding-rules config by scanning your project')
+  .description('Initialize rulegen config by scanning your project')
   .option('--manual', 'Skip auto-detection, enter all values manually')
   .option('-y, --yes', 'Accept all defaults')
   .option('--targets <agents>', 'Comma-separated list of target agents')

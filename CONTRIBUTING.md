@@ -1,4 +1,4 @@
-# Contributing to ai-coding-rules
+# Contributing to rulegen
 
 Thanks for your interest in contributing! Here's how to get started.
 

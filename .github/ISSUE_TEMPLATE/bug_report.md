@@ -12,7 +12,7 @@ A clear description of the bug.
 
 ## Steps to Reproduce
 
-1. Run `ai-coding-rules ...`
+1. Run `rulegen ...`
 2. ...
 
 ## Expected Behavior
@@ -27,7 +27,7 @@ What actually happened.
 
 - OS: [e.g., macOS 14, Ubuntu 22.04]
 - Node.js version: [e.g., 20.10.0]
-- ai-coding-rules version: [e.g., 0.1.0]
+- rulegen version: [e.g., 0.1.0]
 - Shell: [e.g., zsh, bash]
 
 ## Additional Context

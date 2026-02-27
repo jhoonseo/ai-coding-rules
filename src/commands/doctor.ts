@@ -42,7 +42,7 @@ export async function doctorCommand(): Promise<void> {
   if (!configExists) {
     fail(`${CONFIG_FILENAME} not found`)
     log.blank()
-    log.dim(`  Run 'ai-coding-rules init' to create a config file.`)
+    log.dim(`  Run 'rulegen init' to create a config file.`)
     return
   }
   pass(`${CONFIG_FILENAME} exists`)
@@ -81,7 +81,7 @@ export async function doctorCommand(): Promise<void> {
 
     if (!exists) {
       fail(`${gen.outputPath} is missing`)
-      fixes.push(`Run 'ai-coding-rules generate --target ${gen.agentName}' to create missing file`)
+      fixes.push(`Run 'rulegen generate --target ${gen.agentName}' to create missing file`)
       continue
     }
 
@@ -93,7 +93,7 @@ export async function doctorCommand(): Promise<void> {
       pass(`${gen.outputPath} exists and is in sync`)
     } else {
       warn(`${gen.outputPath} exists but is outdated`)
-      fixes.push(`Run 'ai-coding-rules generate' to update ${gen.outputPath}`)
+      fixes.push(`Run 'rulegen generate' to update ${gen.outputPath}`)
     }
   }
 
