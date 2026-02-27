@@ -8,7 +8,7 @@ Generate AI coding rules for Claude Code, Cursor, Copilot, Windsurf, Aider, and 
 
 [![npm version](https://img.shields.io/npm/v/ai-coding-rules.svg)](https://www.npmjs.com/package/ai-coding-rules)
 [![npm downloads](https://img.shields.io/npm/dm/ai-coding-rules.svg)](https://www.npmjs.com/package/ai-coding-rules)
-[![license](https://img.shields.io/npm/l/ai-coding-rules.svg)](https://github.com/self-made4/ai-coding-rules/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/ai-coding-rules.svg)](https://github.com/jhoonseo/ai-coding-rules/blob/main/LICENSE)
 
 <!-- ![demo](./assets/demo.gif) -->
 

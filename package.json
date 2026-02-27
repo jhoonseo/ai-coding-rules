@@ -46,7 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/self-made4/ai-coding-rules"
+    "url": "https://github.com/jhoonseo/ai-coding-rules"
   },
   "dependencies": {
     "boxen": "^8.0.1",
