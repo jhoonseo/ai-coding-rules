@@ -1,0 +1,64 @@
+{
+  "version": "1",
+  "project": {
+    "name": "ai-coding-rules",
+    "description": "CLI tool that generates AI coding rules for every agent from a single config",
+    "type": "cli",
+    "language": "typescript",
+    "runtime": "node",
+    "packageManager": "npm"
+  },
+  "rules": {
+    "style": {
+      "indentation": "spaces",
+      "indentSize": 2,
+      "quotes": "single",
+      "semicolons": false,
+      "maxLineLength": 100
+    },
+    "naming": {
+      "files": "kebab-case",
+      "functions": "camelCase",
+      "types": "PascalCase",
+      "constants": "UPPER_SNAKE_CASE"
+    },
+    "patterns": {
+      "async-io": "All file I/O must use async/await",
+      "custom-errors": "Use custom error classes from utils/errors.ts",
+      "strategy-pattern": "Generators use strategy pattern via BaseGenerator"
+    }
+  },
+  "structure": {
+    "src/commands": "CLI command handlers (init, generate, sync, doctor)",
+    "src/scanners": "Project auto-detection scanners",
+    "src/generators": "Agent-specific file generators",
+    "src/types": "TypeScript types and Zod schemas",
+    "src/utils": "Shared utilities (logger, file, prompt)",
+    "tests": "Test files mirroring src/ structure"
+  },
+  "instructions": {
+    "do": [
+      "Use TypeScript strict mode",
+      "Write JSDoc comments for all public functions",
+      "Keep files under 200 lines",
+      "Use custom error classes for error handling"
+    ],
+    "dont": [
+      "Use 'any' type",
+      "Use synchronous file I/O",
+      "Scan node_modules, .git, or dist directories"
+    ],
+    "guidelines": [
+      "Follow the strategy pattern for generators",
+      "All generated files must include a watermark header"
+    ]
+  },
+  "targets": [
+    "claude",
+    "cursor",
+    "copilot",
+    "windsurf",
+    "aider",
+    "codex"
+  ]
+}
