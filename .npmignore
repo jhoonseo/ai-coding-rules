@@ -1,0 +1,10 @@
+src/
+tests/
+.github/
+.claude/
+*.config.ts
+vitest.config.ts
+tsconfig.json
+biome.json
+.gitignore
+coverage/
