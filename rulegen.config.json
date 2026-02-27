@@ -30,6 +30,19 @@
   "targets": [
     "claude",
     "cursor",
-    "copilot"
+    "copilot",
+    "windsurf",
+    "aider",
+    "codex",
+    "gemini",
+    "cline",
+    "opencode",
+    "roocode",
+    "junie",
+    "continue",
+    "cody",
+    "agents",
+    "goose",
+    "amp"
   ]
 }

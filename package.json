@@ -1,6 +1,6 @@
 {
   "name": "rulegen",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "One config to rule them all — generate AI coding rules for every agent.",
   "type": "module",
   "main": "dist/index.cjs",

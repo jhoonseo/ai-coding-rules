@@ -1,7 +1,7 @@
 import type { AgentOverride, AgentTarget, AiCodingRulesConfig } from '../types/config.js'
 import type { ScanResult } from '../types/scanner.js'
 
-const VERSION = '0.1.0'
+const VERSION = '0.2.0'
 
 /** Abstract base class for all agent file generators */
 export abstract class BaseGenerator {
