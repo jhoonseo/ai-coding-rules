@@ -68,6 +68,16 @@ export const agentTargetSchema = z.enum([
   'windsurf',
   'aider',
   'codex',
+  'gemini',
+  'cline',
+  'opencode',
+  'roocode',
+  'junie',
+  'continue',
+  'cody',
+  'agents',
+  'goose',
+  'amp',
 ])
 export type AgentTarget = z.infer<typeof agentTargetSchema>
 

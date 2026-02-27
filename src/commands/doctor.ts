@@ -58,7 +58,24 @@ export async function doctorCommand(): Promise<void> {
   }
 
   // Validate targets
-  const validTargets = ['claude', 'cursor', 'copilot', 'windsurf', 'aider', 'codex']
+  const validTargets = [
+    'claude',
+    'cursor',
+    'copilot',
+    'windsurf',
+    'aider',
+    'codex',
+    'gemini',
+    'cline',
+    'opencode',
+    'roocode',
+    'junie',
+    'continue',
+    'cody',
+    'agents',
+    'goose',
+    'amp',
+  ]
   const invalidTargets = config.targets.filter((t) => !validTargets.includes(t))
   if (invalidTargets.length > 0) {
     warn(`Unknown targets: ${invalidTargets.join(', ')}`)

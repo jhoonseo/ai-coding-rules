@@ -31,6 +31,16 @@ const AGENT_CHOICES = [
   { name: 'Windsurf', value: 'windsurf' as AgentTarget, checked: false },
   { name: 'Aider', value: 'aider' as AgentTarget, checked: false },
   { name: 'Codex', value: 'codex' as AgentTarget, checked: false },
+  { name: 'Gemini CLI', value: 'gemini' as AgentTarget, checked: false },
+  { name: 'Cline', value: 'cline' as AgentTarget, checked: false },
+  { name: 'OpenCode', value: 'opencode' as AgentTarget, checked: false },
+  { name: 'Roo Code', value: 'roocode' as AgentTarget, checked: false },
+  { name: 'Junie', value: 'junie' as AgentTarget, checked: false },
+  { name: 'Continue.dev', value: 'continue' as AgentTarget, checked: false },
+  { name: 'Sourcegraph Cody', value: 'cody' as AgentTarget, checked: false },
+  { name: 'AGENTS.md', value: 'agents' as AgentTarget, checked: false },
+  { name: 'Goose', value: 'goose' as AgentTarget, checked: false },
+  { name: 'Amp', value: 'amp' as AgentTarget, checked: false },
 ]
 
 /** Init command handler */
