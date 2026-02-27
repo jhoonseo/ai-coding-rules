@@ -1,0 +1,6 @@
+export type { CodeAnalysis } from './code-analyzer.js'
+export { analyzeCode } from './code-analyzer.js'
+export type { ParsedConfigs } from './config-parser.js'
+export { parseConfigFiles } from './config-parser.js'
+export type { CodePatterns } from './pattern-detector.js'
+export { detectCodePatterns } from './pattern-detector.js'
