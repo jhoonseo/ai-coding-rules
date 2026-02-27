@@ -4,13 +4,11 @@
 
 **One config to rule them all.**
 
-Generate AI coding rules for Claude Code, Cursor, Copilot, Windsurf, Aider, and Codex — from a single config file.
+Generate AI coding rules for 16 agents — Claude, Cursor, Copilot, Windsurf, Gemini, Cline, and more — from a single config file.
 
 [![npm version](https://img.shields.io/npm/v/rulegen.svg)](https://www.npmjs.com/package/rulegen)
 [![npm downloads](https://img.shields.io/npm/dm/rulegen.svg)](https://www.npmjs.com/package/rulegen)
 [![license](https://img.shields.io/npm/l/rulegen.svg)](https://github.com/jhoonseo/rulegen/blob/main/LICENSE)
-
-<!-- ![demo](./assets/demo.gif) -->
 
 </div>
 
@@ -25,63 +23,84 @@ You waste time maintaining `CLAUDE.md`, `.cursorrules`, and `copilot-instruction
 ## The Solution
 
 ```bash
-npx rulegen init      # Smart-detect your project
-npx rulegen generate  # Generate all agent configs
+npx rulegen   # That's it. Zero-arg mode does everything.
 ```
 
-That's it. One config → six agent files, always in sync.
+One config → 16 agent files, always in sync.
 
 ## Supported Agents
 
-| Agent | Config File | Status |
+| Agent | Config File | Format |
 |-------|-------------|--------|
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | `CLAUDE.md` | ✅ Supported |
-| [Cursor](https://cursor.sh) | `.cursorrules` | ✅ Supported |
-| [GitHub Copilot](https://github.com/features/copilot) | `.github/copilot-instructions.md` | ✅ Supported |
-| [Windsurf](https://codeium.com/windsurf) | `.windsurfrules` | ✅ Supported |
-| [Aider](https://aider.chat) | `.aider.conf.yml` + `CONVENTIONS.md` | ✅ Supported |
-| [Codex](https://openai.com/index/codex/) | `codex.md` | ✅ Supported |
+| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | `CLAUDE.md` | Markdown |
+| [Cursor](https://cursor.sh) | `.cursorrules` | Markdown |
+| [GitHub Copilot](https://github.com/features/copilot) | `.github/copilot-instructions.md` | Markdown |
+| [Windsurf](https://codeium.com/windsurf) | `.windsurfrules` | Markdown |
+| [Aider](https://aider.chat) | `.aider.conf.yml` + `CONVENTIONS.md` | YAML + Markdown |
+| [Codex](https://openai.com/index/codex/) | `codex.md` | Markdown |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `GEMINI.md` | Markdown |
+| [Cline](https://cline.bot) | `.clinerules/project.md` | Markdown |
+| [OpenCode](https://opencode.ai) | `.opencode/rules.md` | Markdown |
+| [Roo Code](https://roocode.com) | `.roo/rules.md` | Markdown |
+| [Junie](https://www.jetbrains.com/junie/) | `.junie/guidelines.md` | Markdown |
+| [Continue.dev](https://continue.dev) | `.continue/rules.md` | Markdown |
+| [Sourcegraph Cody](https://sourcegraph.com/cody) | `.vscode/cody.json` | JSON |
+| [AGENTS.md](https://openai.github.io/agents-md/) | `AGENTS.md` | Markdown |
+| [Goose](https://block.github.io/goose/) | `.goose/config.yaml` | YAML |
+| [Amp](https://ampcode.com) | `.amp/rules.md` | Markdown |
 
 ## Features
 
-🔍 **Smart Detection** — Auto-scans your project for language, framework, dependencies, and structure
-
-🎯 **Agent-Optimized** — Each file uses the format and style that works best for that specific AI tool
-
-🔄 **Stay in Sync** — One source of truth. Change the config, regenerate all files instantly
-
-🧩 **Fully Customizable** — Add custom rules, per-agent overrides, do/don't instructions
+- **Zero-Config Setup** — `npx rulegen` one command does everything
+- **Smart Detection** — Auto-scans your project for language, framework, dependencies
+- **16 Agents** — Every major AI coding tool supported
+- **Agent-Optimized** — Each file uses the format best for that tool (Markdown, JSON, YAML)
+- **Import Existing** — `rulegen import` reads your existing agent files into a config
+- **Stay in Sync** — One source of truth. Change config, regenerate all files instantly
+- **Fully Customizable** — Custom rules, per-agent overrides, do/don't instructions
 
 ## Quick Start
 
-### Install globally (optional)
-
 ```bash
-npm install -g rulegen
+# Zero-arg mode: auto-detect → generate
+npx rulegen
+
+# Or step by step:
+npx rulegen init        # Interactive project setup
+npx rulegen generate    # Generate all agent files
+npx rulegen doctor      # Verify everything is in sync
 ```
 
-### Or use directly with npx
+### Import existing config files
+
+Already have `.cursorrules` or `CLAUDE.md`? Import them:
 
 ```bash
-npx rulegen init
+npx rulegen import                     # Auto-detect all agent files
+npx rulegen import --from claude       # Import from specific agent
+npx rulegen import --from cursor,copilot  # Multiple agents
 ```
 
-This will:
-1. Scan your project directory
-2. Detect language, framework, and tooling
-3. Ask which AI agents you use
-4. Generate `rulegen.config.json`
+## CLI Commands
 
-Then generate your files:
+| Command | Description |
+|---------|-------------|
+| `rulegen` | Zero-arg: init (if no config) or generate (if config exists) |
+| `rulegen init` | Interactive project setup and config generation |
+| `rulegen generate` | Generate agent config files from config |
+| `rulegen import` | Import existing agent files into rulegen.config.json |
+| `rulegen sync` | Sync files (use `--watch` for auto-sync) |
+| `rulegen doctor` | Validate config and check file status |
+
+### Common options
 
 ```bash
-npx rulegen generate
-```
-
-### Verify setup
-
-```bash
-npx rulegen doctor
+rulegen generate --target claude,cursor  # Specific agents only
+rulegen generate --dry-run               # Preview without writing
+rulegen generate --force                 # Overwrite without asking
+rulegen generate --diff                  # Show changes
+rulegen generate --output ./out/         # Custom output directory
+rulegen sync --watch                     # Auto-regenerate on config change
 ```
 
 ## Configuration
@@ -139,7 +158,7 @@ npx rulegen doctor
       "Prefer composition over inheritance"
     ]
   },
-  "targets": ["claude", "cursor", "copilot", "windsurf", "aider", "codex"],
+  "targets": ["claude", "cursor", "copilot", "windsurf", "gemini", "cline"],
   "overrides": {
     "claude": {
       "extraInstructions": ["Always run tests before committing"]
@@ -159,25 +178,6 @@ npx rulegen doctor
 - **targets** — Which agent files to generate
 - **overrides** — Per-agent customizations
 
-## CLI Commands
-
-| Command | Description |
-|---------|-------------|
-| `rulegen init` | Interactive project setup and config generation |
-| `rulegen generate` | Generate agent config files from config |
-| `rulegen sync` | Sync files (use `--watch` for auto-sync) |
-| `rulegen doctor` | Validate config and check file status |
-
-### Common options
-
-```bash
-rulegen generate --target claude,cursor  # Specific agents only
-rulegen generate --dry-run               # Preview without writing
-rulegen generate --force                  # Overwrite without asking
-rulegen generate --diff                   # Show changes
-rulegen sync --watch                      # Auto-regenerate on config change
-```
-
 ## How It Works
 
 ```
@@ -186,13 +186,17 @@ rulegen sync --watch                      # Auto-regenerate on config change
 │  (auto-detect)   │     │          │     │  .json file    │
 └─────────────────┘     └──────────┘     └───────┬───────┘
                                                   │
-                         ┌────────────────────────┼────────────────────────┐
-                         ▼            ▼           ▼          ▼            ▼
-                    ┌─────────┐ ┌──────────┐ ┌────────┐ ┌─────────┐ ┌────────┐
-                    │CLAUDE.md│ │.cursor    │ │copilot │ │.windsurf│ │codex.md│
-                    │         │ │rules     │ │instr.md│ │rules    │ │        │
-                    └─────────┘ └──────────┘ └────────┘ └─────────┘ └────────┘
+              ┌───────────────────────────────────┼───────────────────┐
+              ▼         ▼         ▼         ▼     ▼     ▼            ▼
+         CLAUDE.md .cursorrules copilot GEMINI.md cody.json  ... 16 agents
 ```
+
+## Why rulegen?
+
+- **Zero-config**: `npx rulegen` — one command does everything
+- **Import existing**: Already have agent files? Import them, don't start over
+- **16 agents**: The most comprehensive agent support available
+- **Coming soon**: AI-powered rule generation
 
 ## Contributing
 
@@ -200,4 +204,4 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 ## License
 
-MIT © [self-made4](https://github.com/self-made4)
+MIT
