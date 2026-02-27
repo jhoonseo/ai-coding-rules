@@ -14,13 +14,13 @@ interface GenerateOptions {
   dryRun?: boolean
   force?: boolean
   diff?: boolean
-  outputDir?: string
+  output?: string
 }
 
 /** Generate command handler */
 export async function generateCommand(options: GenerateOptions): Promise<void> {
   const projectRoot = process.cwd()
-  const outputDir = options.outputDir ? path.resolve(options.outputDir) : projectRoot
+  const outputDir = options.output ? path.resolve(options.output) : projectRoot
 
   // Step 1: Load config
   const config = await loadConfig(projectRoot)
