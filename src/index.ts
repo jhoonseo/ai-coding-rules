@@ -1,4 +1,6 @@
 import { Command } from 'commander'
+import { aiCommand } from './commands/ai.js'
+import { configCommand } from './commands/config.js'
 import { doctorCommand } from './commands/doctor.js'
 import { generateCommand } from './commands/generate.js'
 import { importCommand } from './commands/import.js'
@@ -12,7 +14,7 @@ const program = new Command()
 program
   .name('rulegen')
   .description('One config to rule them all — generate AI coding rules for every agent.')
-  .version('0.2.0')
+  .version('0.3.0')
   .option('-v, --verbose', 'Enable verbose output')
   .option('-q, --quiet', 'Suppress non-essential output')
   .option('--no-color', 'Disable colored output')
@@ -54,6 +56,38 @@ program
   .action(syncCommand)
 
 program.command('doctor').description('Diagnose config and generated files').action(doctorCommand)
+
+const configCmd = program.command('config').description('Manage global configuration')
+
+configCmd
+  .command('set <key> <value>')
+  .description('Set a config value (provider, api-key)')
+  .action(async (key: string, value: string) => {
+    await configCommand('set', { args: [key, value] })
+  })
+
+configCmd
+  .command('get <key>')
+  .description('Get a config value (provider, api-key)')
+  .action(async (key: string) => {
+    await configCommand('get', { args: [key] })
+  })
+
+configCmd
+  .command('reset')
+  .description('Reset global config to defaults')
+  .action(async () => {
+    await configCommand('reset', { args: [] })
+  })
+
+program
+  .command('ai')
+  .description('AI-powered rule generation from codebase analysis')
+  .option('--provider <name>', 'AI provider (claude, openai, gemini)')
+  .option('--dry-run', 'Generate config only, skip agent file creation')
+  .option('--explain', 'Show explanation for each generated rule')
+  .option('--output <path>', 'Custom output directory')
+  .action(aiCommand)
 
 // Default action: no subcommand → init or generate
 async function run(): Promise<void> {
